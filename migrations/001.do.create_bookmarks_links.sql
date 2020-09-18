@@ -3,5 +3,5 @@ CREATE TABLE bookmarks_links (
     title TEXT NOT NULL,
     url TEXT NOT NULL,
     description TEXT,
-    rating TEXT NOT NULL,
+    rating TEXT NOT NULL
 );
