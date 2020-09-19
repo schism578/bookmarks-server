@@ -6,8 +6,7 @@ const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const validateBearerToken = require('./validate-bearer-token')
 const errorHandler = require('./error-handler')
-const bookmarksRouter = require('./bookmark/bookmark-router')
-const BookmarksService = require('./bookmarks-service')
+const bookmarksRouter = require('./bookmarks/bookmarks-router')
 
 const app = express()
 
@@ -20,25 +19,10 @@ app.use(validateBearerToken)
 
 app.use(bookmarksRouter)
 
-app.get('/bookmarks', (req, res, next) => {
-  const knexInstance = req.app.get('db')
-  BookmarksService.getAllBookmarks(knexInstance)
-    .then(bookmarks => {
-      if (!bookmark) {
-        return res.status(404).json({
-          error: { message: `Bookmark doesn't exist` }
-        })
-      }        
-      res.json(bookmarks)
-    })
-    .catch(next)
-})
-
 app.get('/', (req, res) => {
   res.send('Hello, world!')
 })
 
 app.use(errorHandler)
-
 
 module.exports = app

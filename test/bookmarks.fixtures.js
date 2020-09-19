@@ -1,5 +1,3 @@
-const { v4: uuid } = require('uuid');
-
 function makeBookmarksArray() {
     return [
     { id: uuid(),

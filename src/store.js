@@ -1,4 +1,4 @@
-const { v4: uuid } = require('uuid');
+const uuid = require('uuid');
 
 const BookmarksService = [
   { id: uuid(),
